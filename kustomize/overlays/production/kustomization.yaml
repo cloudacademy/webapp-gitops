@@ -1,0 +1,15 @@
+namePrefix: prod-
+
+commonLabels:
+  env: prod
+
+commonAnnotations:
+  note: production deployment of cloudacademy lab webapp
+
+bases:
+- ../../base
+
+patchesStrategicMerge:
+- configmap.yaml
+- deployment.yaml
+- ingress.yaml

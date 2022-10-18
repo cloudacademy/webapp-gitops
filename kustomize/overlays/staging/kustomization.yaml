@@ -1,0 +1,15 @@
+namePrefix: stg-
+
+commonLabels:
+  env: staging
+
+commonAnnotations:
+  note: staging deployment of cloudacademy lab webapp
+
+bases:
+- ../../base
+
+patchesStrategicMerge:
+- configmap.yaml
+- deployment.yaml
+- ingress.yaml

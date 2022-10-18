@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+  namespace: cloudacademy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+    spec:
+      containers:
+      - name: webapp
+        image: cloudacademydevops/webappecho:latest
+        command: ["/go/bin/demo"]
+        ports:
+        - containerPort: 80
+        env:
+        - name: MESSAGE
+          value: "Default Message"
+        - name: BACKGROUND_COLOR
+          valueFrom:
+            configMapKeyRef:
+              name: webapp-cfg
+              key: bgcolor
