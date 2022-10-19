@@ -4,4 +4,4 @@ metadata:
   name: webapp-cfg
   namespace: cloudacademy
 data:
-  bgcolor: "orange"
+  bgcolor: "lime"
